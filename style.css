@@ -1,0 +1,18 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+.grid-container {
+    display: grid;
+    height: 680px;
+    width: 680px;
+}
+
+h1, 
+.grid-wrapper {
+  display: grid;
+  justify-content: center;
+}
