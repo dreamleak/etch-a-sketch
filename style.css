@@ -16,3 +16,10 @@ h1,
   display: grid;
   justify-content: center;
 }
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+  padding: 1em;
+}
