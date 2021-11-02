@@ -39,11 +39,24 @@ function clearCurrentGrid() {
 
     const clickClearButton = document.getElementById('clear-button');
         clickClearButton.addEventListener('click', () => {
-            console.log('be a [[BIG SHOT]] !!');
             gridContainer.textContent = '';
         });
 }
 
 clearCurrentGrid();
 
-// instead of prompt, add three grid size options for better UX and UI.
+function resizeGridByTen() {
+    // instead of prompt, add grid resize button option for better UX and UI.
+    const resizeByTen = document.createElement('button');
+    resizeByTen.textContent = '10x10';
+    resizeByTen.id = 'ten-by-ten-button';
+    buttonWrapper.appendChild(resizeByTen);
+
+    const clickResizeByTen = document.getElementById('ten-by-ten-button');
+        clickResizeByTen.addEventListener('click', () => {
+            createDivs(10, 10);
+        });
+}
+
+resizeGridByTen();
+
