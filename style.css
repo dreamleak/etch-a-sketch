@@ -25,7 +25,11 @@ h1,
 }
 
 #ten-by-ten-button,
-#clear-button {
+#clear-button,
+#default-button,
+#rgb-button,
+#black-button, 
+#grey-button {
   border-radius: 10px;
   padding: 1em 1em;
 }
