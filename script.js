@@ -32,7 +32,7 @@ function changeSquaresToBlack() {
     buttonWrapper.appendChild(getBlackButton);
 
     const clickGetBlack = document.getElementById('black-button');
-        clickGetBlack.addEventListener('click', hoverGridSquares);
+    clickGetBlack.addEventListener('click', hoverGridSquares);
 }
 
 function changeSquaresToRGB() {
@@ -42,14 +42,14 @@ function changeSquaresToRGB() {
     buttonWrapper.appendChild(getRandomColorButton);
 
     const clickGetRandomColor = document.getElementById('rgb-button');
-        clickGetRandomColor.addEventListener('click', () => {
-            gridSquare.forEach(square => {
-                square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'hsla(' + 
-                (Math.random() * 360) + ', 100%, 50%, 1)';
+    clickGetRandomColor.addEventListener('click', () => {
+        gridSquare.forEach(square => {
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = 'hsla(' +
+                    (Math.random() * 360) + ', 100%, 50%, 1)';
             });
         });
-    }); 
+    });
 }
 
 function changeSquaresToGrey() {
@@ -58,13 +58,13 @@ function changeSquaresToGrey() {
     getGreyButton.id = 'grey-button';
     buttonWrapper.appendChild(getGreyButton);
 
-    
+
     const clickGetGrey = document.getElementById('grey-button');
-        clickGetGrey.addEventListener('click', () => {
-            gridSquare.forEach(square => {
-                square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = generateGreyHSL(204, 8, 76);        
-             });
+    clickGetGrey.addEventListener('click', () => {
+        gridSquare.forEach(square => {
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = generateGreyHSL();
+            });
         });
     });
 }
@@ -73,14 +73,13 @@ function generateGreyHSL() {
     const hue = Math.floor(Math.random() * 256);
     const saturation = Math.floor(Math.random() * (0 + 1)) + '%';
     const lightness = Math.floor(Math.random() * (100 + 1)) + '%';
-    return 'hsl('+ hue + ', ' + saturation +  ', ' + lightness + ')';
+    return 'hsl(' + hue + ', ' + saturation + ', ' + lightness + ')';
 }
 
 hoverGridSquares();
 changeSquaresToBlack();
 changeSquaresToRGB();
 changeSquaresToGrey();
-
 
 function clearCurrentGrid() {
     // dynmatically create clear button.
@@ -118,9 +117,9 @@ function resizeBackToDefaultGrid() {
     buttonWrapper.appendChild(defaultGridButton);
 
     const clickDefaultButton = document.getElementById('default-button');
-        clickDefaultButton.addEventListener('click', () => {
-            createDivs(16, 16);
-        });
+    clickDefaultButton.addEventListener('click', () => {
+        createDivs(16, 16);
+    });
 }
 
 resizeBackToDefaultGrid();
