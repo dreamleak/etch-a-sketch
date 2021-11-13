@@ -58,21 +58,29 @@ function changeSquaresToGrey() {
     getGreyButton.id = 'grey-button';
     buttonWrapper.appendChild(getGreyButton);
 
+    
     const clickGetGrey = document.getElementById('grey-button');
         clickGetGrey.addEventListener('click', () => {
             gridSquare.forEach(square => {
                 square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'hsla(' + 
-                (Math.random() * 130) + ', 0%, 50% , 1)';
+                square.style.backgroundColor = generateGreyHSL(204, 8, 76);        
              });
         });
     });
+}
+
+function generateGreyHSL() {
+    const hue = Math.floor(Math.random() * 256);
+    const saturation = Math.floor(Math.random() * (0 + 1)) + '%';
+    const lightness = Math.floor(Math.random() * (100 + 1)) + '%';
+    return 'hsl('+ hue + ', ' + saturation +  ', ' + lightness + ')';
 }
 
 hoverGridSquares();
 changeSquaresToBlack();
 changeSquaresToRGB();
 changeSquaresToGrey();
+
 
 function clearCurrentGrid() {
     // dynmatically create clear button.
