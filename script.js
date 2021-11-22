@@ -90,7 +90,9 @@ function clearCurrentGrid() {
 
     const clickClearButton = document.getElementById('clear-button');
     clickClearButton.addEventListener('click', () => {
-        gridContainer.textContent = '';
+        gridSquare.forEach(square => {
+            square.style.backgroundColor = null;
+        })
     });
 }
 
