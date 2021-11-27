@@ -16,7 +16,7 @@ function createDivs(col, row) {
 createDivs(30, 30);
 
 function hoverGridSquares() {
-    
+
     gridSquare.forEach(square => {
         square.addEventListener('mouseover', () => {
             square.style.backgroundColor = 'hsl(0, 0%, 8%)';
@@ -32,7 +32,7 @@ function changeSquaresToBlack() {
     getBlackButton.textContent = 'Black';
     getBlackButton.id = 'black-button';
     buttonWrapper.appendChild(getBlackButton);
-    
+
     const clickGetBlack = document.getElementById('black-button');
     clickGetBlack.addEventListener('click', hoverGridSquares);
 }
@@ -42,13 +42,13 @@ function changeSquaresToRGB() {
     getRandomColorButton.textContent = 'Rainbow';
     getRandomColorButton.id = 'rgb-button';
     buttonWrapper.appendChild(getRandomColorButton);
-    
+
     const clickGetRandomColor = document.getElementById('rgb-button');
     clickGetRandomColor.addEventListener('click', () => {
         gridSquare.forEach(square => {
             square.addEventListener('mouseover', () => {
                 square.style.backgroundColor = 'hsla(' +
-                (Math.random() * 360) + ', 100%, 50%, 1)';
+                    (Math.random() * 360) + ', 100%, 50%, 1)';
             });
         });
     });
@@ -59,8 +59,8 @@ function changeSquaresToGrey() {
     getGreyButton.textContent = 'Greyscale';
     getGreyButton.id = 'grey-button';
     buttonWrapper.appendChild(getGreyButton);
-    
-    
+
+
     const clickGetGrey = document.getElementById('grey-button');
     clickGetGrey.addEventListener('click', () => {
         gridSquare.forEach(square => {
@@ -84,12 +84,11 @@ changeSquaresToRGB();
 changeSquaresToGrey();
 
 function clearCurrentGrid() {
-    // dynmatically create clear button.
     const clearButton = document.createElement('button');
     clearButton.textContent = 'Clear';
     clearButton.id = 'clear-button';
     buttonWrapper.appendChild(clearButton);
-    
+
     const clickClearButton = document.getElementById('clear-button');
     clickClearButton.addEventListener('click', () => {
         gridSquare.forEach(square => {
@@ -112,7 +111,7 @@ function gridResizeSlider() {
     rangeSlider.step = '5';
     gridWrapper.appendChild(rangeSlider);
 }
- 
+
 gridResizeSlider();
 
 let showOutPut = document.querySelector('output'),
@@ -129,7 +128,7 @@ function outPutValue() {
 
 outPutValue();
 
-function changeGridSize(){
+function changeGridSize() {
     createDivs(rangeTrack.value, rangeTrack.value);
 }
 rangeTrack.addEventListener('mouseup', changeGridSize);
