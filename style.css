@@ -24,12 +24,26 @@ h1,
   padding: 1em;
 }
 
-#ten-by-ten-button,
-#clear-button,
-#default-button,
-#rgb-button,
-#black-button, 
-#grey-button {
+button {
   border-radius: 10px;
   padding: 1em 1em;
+}
+
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.range-slider {
+  position: absolute;
+  right: 0;
+  bottom: 26em;
+  transform: rotate(-90deg);
+  width: 200px;
+}
+
+.output-value-wrapper {
+  position: absolute;
+  right: 2em;
+  bottom: 22em;
 }
