@@ -5,13 +5,16 @@
 html {
     box-sizing: border-box;
   }
-  *, *:before, *:after {
+  *, *::before, *::after {
     box-sizing: inherit;
+    padding: 0;
+    margin: 0;
   }
 
 body {
-  margin: 0;
-  padding: 0;
+  background-color: hsl(240, 4%, 28%);
+  background-image: url('https://tinyurl.com/2p8wtnw6');
+  background-attachment: fixed;
 }
 
  /* ===========
@@ -24,48 +27,73 @@ body {
 ============= */ 
 
 .grid-container {
-    display: grid;
-    height: 680px;
-    width: 680px;
+  display: grid;
+  height: 680px;
+  width: 680px;
+  background-color: hsl(180, 100%, 98%);
 }
 
 h1, 
 .grid-wrapper {
-  display: grid;
-  justify-content: center;
-}
-
-.page-wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.output-value-wrapper {
-  position: absolute;
-  right: 2em;
-  bottom: 22em;
-}
-
-.button-wrapper {
   display: flex;
   justify-content: center;
-  gap: .5em;
-  padding: 1em;
+  gap: 3rem;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
 }
 
 /* ===========
   components
 ============= */
 
-.range-slider {
-  position: absolute;
-  right: 0;
-  bottom: 26em;
-  transform: rotate(-90deg);
-  width: 200px;
-}
-
 button {
   border-radius: 10px;
   padding: 1em 1em;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1em;
+}
+
+.range-slider {
+  align-self: center;
+}
+
+.range-wrapper {
+  position: relative;
+}
+
+.output-value-wrapper {
+  position: absolute;
+  right: -5em;
+  bottom: 45%;
+  width: 292px;
+}
+
+.bubble {
+  position: absolute;
+  background: rgb(187, 9, 231);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 10px 10px;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  background: rgb(187, 9, 231);
+  width: 2px;
+  height: 2px;
+  top: -1px;
+  left: 50%;
 }

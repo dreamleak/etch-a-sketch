@@ -2,6 +2,7 @@ const gridContainer = document.querySelector('.grid-container');
 const buttonWrapper = document.querySelector('.button-wrapper');
 const gridWrapper = document.querySelector('.grid-wrapper');
 const outPutWrapper = document.querySelector('.output-value-wrapper');
+const rangeWrapper = document.querySelector('.range-wrapper');
 
 function createDivs(col, row) {
     for (let i = 0; i < (col * row); i++) {
@@ -13,7 +14,7 @@ function createDivs(col, row) {
     }
 }
 
-createDivs(30, 30);
+createDivs(40, 40);
 
 function hoverGridSquares() {
 
@@ -107,8 +108,8 @@ function gridResizeSlider() {
     rangeSlider.type = 'range';
     rangeSlider.className = 'range-slider';
     rangeSlider.min = '10';
-    rangeSlider.max = '30';
-    rangeSlider.step = '5';
+    rangeSlider.max = '40';
+    rangeSlider.step = '2';
     gridWrapper.appendChild(rangeSlider);
 }
 
@@ -123,12 +124,35 @@ function outPutValue() {
     rangeTrack.addEventListener('input', () => {
         showOutPut.innerHTML = rangeTrack.value;
     }, false);
+
     outPutWrapper.appendChild(showOutPut);
+    gridWrapper.appendChild(rangeWrapper);
+    rangeWrapper.appendChild(outPutWrapper);
 }
 
 outPutValue();
 
+// position value bubble for range slider.
+const range = document.querySelector('.range-slider'),
+      bubble = document.querySelector('.bubble');
+
+rangeTrack.addEventListener('input', () => {
+    setBubble(range, bubble);
+});
+
+function setBubble(range, bubble) {
+    const val = range.value,
+          min = range.min ? range.min : 10,
+          max = range.max ? range.max : 40;
+    let newVal = Number(((val - min) * 52) / (max - min));
+
+range.oninput = () => {
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+    }
+}
+
 function changeGridSize() {
     createDivs(rangeTrack.value, rangeTrack.value);
 }
-rangeTrack.addEventListener('mouseup', changeGridSize);
+
+rangeTrack.addEventListener('input', changeGridSize);
