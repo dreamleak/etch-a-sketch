@@ -7,7 +7,6 @@ const rangeWrapper = document.querySelector('.range-wrapper');
 function createDivs(col, row) {
     for (let i = 0; i < (col * row); i++) {
         const gridSquare = document.createElement('div');
-        gridContainer.style.border = '1px solid #141414';
         gridContainer.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
         gridContainer.style.gridTemplateRows = `repeat(${row}, 1fr)`;
         gridContainer.appendChild(gridSquare).classList.add('grid-squares');
@@ -26,7 +25,6 @@ function hoverGridSquares() {
 }
 
 const gridSquare = document.querySelectorAll('.grid-squares');
-
 
 function changeSquaresToBlack() {
     const getBlackButton = document.createElement('button');
@@ -144,7 +142,7 @@ function setBubble(range, bubble) {
     const val = range.value,
           min = range.min ? range.min : 10,
           max = range.max ? range.max : 40;
-    let newVal = Number(((val - min) * 52) / (max - min));
+    let newVal = Number(((val - min) * 50) / (max - min));
 
 range.oninput = () => {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
