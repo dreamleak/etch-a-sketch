@@ -142,10 +142,10 @@ function setBubble(range, bubble) {
     const val = range.value,
           min = range.min ? range.min : 10,
           max = range.max ? range.max : 40;
-    let newVal = Number(((val - min) * 50) / (max - min));
+    let newVal = Number(((val - min) * 40) / (max - min));
 
 range.oninput = () => {
-    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+    bubble.style.left = `calc(${newVal}% + (${newVal * 0.15}%))`;
     }
 }
 

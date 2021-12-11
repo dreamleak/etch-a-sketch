@@ -29,20 +29,19 @@ body {
 .grid-container {
   display: grid;
   height: 680px;
-  width: 680px;
+  min-width: 680px;
   background-color: hsl(180, 100%, 98%);
+  
 }
 
 h1, 
 .grid-wrapper {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .main-wrapper {
-  display: flex;
-  flex-direction: column;
   min-width: 400px;
 }
 
@@ -63,19 +62,15 @@ button {
   padding: 1em;
 }
 
-.range-slider {
-  align-self: center;
-}
-
 .range-wrapper {
   position: relative;
 }
 
 .output-value-wrapper {
   position: absolute;
-  right: -5em;
-  bottom: 45%;
-  width: 292px;
+  width: 290px;
+  right: -7em;
+  bottom: 50%;
 }
 
 .bubble {
@@ -83,9 +78,9 @@ button {
   background: rgb(187, 9, 231);
   color: white;
   padding: 4px 12px;
-  border-radius: 10px 10px;
-  transform: translateX(-50%);
+  border-radius: 4px;
   left: 50%;
+  transform: translateX(-50%);
 }
 
 .bubble::after {
