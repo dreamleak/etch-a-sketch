@@ -140,12 +140,12 @@ rangeTrack.addEventListener('input', () => {
 
 function setBubble(range, bubble) {
     const val = range.value,
-          min = range.min ? range.min : 10,
-          max = range.max ? range.max : 40;
-    let newVal = Number(((val - min) * 40) / (max - min));
+          min = range.min ? range.min : 0,
+          max = range.max ? range.max : 100;
+    let newVal = Number(((val - min) * 50) / (max - min));
 
 range.oninput = () => {
-    bubble.style.left = `calc(${newVal}% + (${newVal * 0.15}%))`;
+    bubble.style.left = `calc(${newVal}% - (${8 - newVal * 0.15}px))`;
     }
 }
 
