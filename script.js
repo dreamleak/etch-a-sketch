@@ -139,15 +139,16 @@ rangeTrack.addEventListener('input', () => {
 });
 
 function setBubble(range, bubble) {
-    const val = range.value,
-          min = range.min ? range.min : 0,
-          max = range.max ? range.max : 100;
-    let newVal = Number(((val - min) * 50) / (max - min));
-
-range.oninput = () => {
-    bubble.style.left = `calc(${newVal}% - (${8 - newVal * 0.15}px))`;
+    const thumbSize = 16 // referenced from browser computed value.
+          val = range.value,
+          newVal = Number(((val - range.min) * 50) / (range.max - range.min)),
+          bubbleOffset = thumbSize / 2;
+          
+     bubble.style.left = `calc(${newVal}% + ${bubbleOffset}px)`;
     }
-}
+
+    // fix value bubble from being offset of slider.
+    // account for thumb size/position + avoid magic number by using named const.
 
 function changeGridSize() {
     createDivs(rangeTrack.value, rangeTrack.value);
