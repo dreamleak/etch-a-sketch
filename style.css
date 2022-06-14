@@ -15,11 +15,12 @@ body {
   background-color: hsl(240, 4%, 28%);
   background-image: url('https://tinyurl.com/2p8wtnw6');
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
  /* ===========
   typography
-============= */ 
+============= */  
 
 
  /* ===========
@@ -63,21 +64,22 @@ button {
   padding: 1em;
 }
 
-.range-wrapper {
- position: relative;
- max-width: 160px;
+input[type="range"] {
+  -webkit-appearance: none; /* overrides browser default style */
+  align-self: center;
+  width: 160px; /* firefox requires specified width for slider */
 }
 
-input[type=range] {
-  height: 20px;
+.range-wrapper {
+  position: absolute;
   align-self: center;
+  margin-top: 4em;
 }
 
 .output-value-wrapper {
   position: absolute;
-  bottom: 46%;
-  width: 272px;
-  right: -6rem;
+  left: 17em;
+  width: 300px;
 }
 
 .bubble {
@@ -87,7 +89,7 @@ input[type=range] {
   padding: 4px 12px;
   border-radius: 4px;
   transform: translateX(-50%);
-  left: calc(49.4949% + 0.10101px);
+  left: 50%;
 }
 
 .bubble::after {
@@ -97,5 +99,5 @@ input[type=range] {
   width: 2px;
   height: 2px;
   top: -1px;
-  left: calc(49.4949% + 0.10101px);
+  left: 50%;
 }
