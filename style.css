@@ -19,13 +19,26 @@ body {
 }
 
  /* ===========
-  typography
-============= */  
+   typography
+  ============ */  
 
 
  /* ===========
     layout
-============= */ 
+  ============= */ 
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+h1,
+.grid-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
 
 .grid-container {
   display: grid;
@@ -36,27 +49,9 @@ body {
   border-radius: 2pt;
 }
 
-h1, 
-.grid-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
 /* ===========
   components
 ============= */
-
-button {
-  border-radius: 10px;
-  padding: 1em 1em;
-}
 
 .button-wrapper {
   display: flex;
@@ -64,13 +59,6 @@ button {
   gap: 2rem;
   z-index: 1;
   padding: .5em;
-}
-
-input[type="range"] {
-  -webkit-appearance: none; /* overrides browser default style */
-  width: 156px; /* firefox requires specified width for slider */
-  align-self: center;
-  border-radius: 2em 2em;
 }
 
 .range-wrapper {
@@ -84,6 +72,18 @@ input[type="range"] {
   left: 8.4em;
   top: -24.5em;
   width: 290px;
+}
+
+button {
+  border-radius: 10px;
+  padding: 1em 1em;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* overrides browser default style */
+  width: 156px; /* firefox requires specified width for slider */
+  align-self: center;
+  border-radius: 2em 2em;
 }
 
 .bubble {
