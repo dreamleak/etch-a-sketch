@@ -22,6 +22,11 @@ body {
    typography
   ============ */  
 
+#header-one-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: .5em;
+}
 
  /* ===========
     layout
@@ -33,7 +38,6 @@ body {
   flex-wrap: wrap;
 }
 
-h1,
 .grid-wrapper {
   display: flex;
   justify-content: center;
