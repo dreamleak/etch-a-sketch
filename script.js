@@ -1,8 +1,11 @@
+const mainWrapper = document.querySelector('.main-wrapper');
+const gridWrapper = document.querySelector('.grid-wrapper');
 const gridContainer = document.querySelector('.grid-container');
 const buttonWrapper = document.querySelector('.button-wrapper');
-const gridWrapper = document.querySelector('.grid-wrapper');
 const outPutWrapper = document.querySelector('.output-value-wrapper');
 const rangeWrapper = document.querySelector('.range-wrapper');
+const headerOneWrapper = document.querySelector('#header-one-wrapper');
+const headerOne = document.querySelector('#header-one');
 
 function createDivs(col, row) {
     for (let i = 0; i < (col * row); i++) {
@@ -154,3 +157,13 @@ function changeGridSize() {
 }
 
 rangeTrack.addEventListener('input', changeGridSize);
+
+
+function wrapHeaderOne() {
+    const headerOneWrapper = document.createElement('div');
+    headerOneWrapper.id = 'header-one-wrapper';
+    headerOneWrapper.appendChild(headerOne);
+    mainWrapper.appendChild(headerOneWrapper);
+}
+
+wrapHeaderOne();
