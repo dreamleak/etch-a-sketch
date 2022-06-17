@@ -123,9 +123,7 @@ function outPutValue() {
         showOutPut.innerHTML = rangeTrack.value;
     }, false);
 
-    outPutWrapper.appendChild(showOutPut);
-    gridWrapper.appendChild(rangeWrapper);
-    rangeWrapper.appendChild(outPutWrapper);
+    gridWrapper.appendChild(outPutWrapper);
 }
 
 outPutValue();
@@ -138,17 +136,18 @@ rangeTrack.addEventListener('input', () => {
     setBubble(range, bubble);
 });
 
+    buttonWrapper.appendChild(range);
+    rangeWrapper.appendChild(outPutWrapper);
+
 function setBubble(range, bubble) {
     const thumbSize = 16 // referenced from browser computed value.
           val = range.value,
           newVal = Number(((val - range.min) * 50) / (range.max - range.min)),
           bubbleOffset = thumbSize / 2;
-          
+        // fix value bubble from being offset of slider.
+        // account for thumb size/position + avoid magic number by using named const.
      bubble.style.left = `calc(${newVal}% + ${bubbleOffset}px)`;
     }
-
-    // fix value bubble from being offset of slider.
-    // account for thumb size/position + avoid magic number by using named const.
 
 function changeGridSize() {
     createDivs(rangeTrack.value, rangeTrack.value);

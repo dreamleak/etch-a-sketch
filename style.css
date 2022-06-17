@@ -12,8 +12,8 @@ html {
   }
 
 body {
-  background-color: hsl(240, 4%, 28%);
-  background-image: url('https://tinyurl.com/2p8wtnw6');
+  background-color: hsl(0, 3%, 41%);
+  /* background-image: url('https://tinyurl.com/2p8wtnw6'); */
   background-attachment: fixed;
   overflow-x: hidden;
 }
@@ -30,8 +30,10 @@ body {
 .grid-container {
   display: grid;
   height: 680px;
-  width: 680px;
+  width: 720px;
   background-color: hsl(180, 100%, 98%);
+  box-shadow: 0 0 3pt 46pt rgb(60, 111, 187); /*frames screen without overlap*/
+  border-radius: 2pt;
 }
 
 h1, 
@@ -59,15 +61,16 @@ button {
 .button-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 2rem;
-  padding: 1em;
+  z-index: 1;
+  padding: .5em;
 }
 
 input[type="range"] {
   -webkit-appearance: none; /* overrides browser default style */
+  width: 156px; /* firefox requires specified width for slider */
   align-self: center;
-  width: 160px; /* firefox requires specified width for slider */
+  border-radius: 2em 2em;
 }
 
 .range-wrapper {
@@ -78,8 +81,9 @@ input[type="range"] {
 
 .output-value-wrapper {
   position: absolute;
-  left: 17em;
-  width: 300px;
+  left: 8.4em;
+  top: -24.5em;
+  width: 290px;
 }
 
 .bubble {
