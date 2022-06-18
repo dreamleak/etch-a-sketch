@@ -28,6 +28,13 @@ body {
   margin-top: .5em;
 }
 
+#text-span {
+  align-self: center;
+  margin-right: 22em;
+  margin-top: -1.5em;
+  transform: rotate(-20deg);
+}
+
  /* ===========
     layout
   ============= */ 
