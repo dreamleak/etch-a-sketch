@@ -141,7 +141,7 @@ rangeTrack.addEventListener('input', () => {
 
     buttonWrapper.appendChild(range);
     rangeWrapper.appendChild(outPutWrapper);
-
+    
 function setBubble(range, bubble) {
     const thumbSize = 16 // referenced from browser computed value.
           val = range.value,
@@ -167,3 +167,12 @@ function wrapHeaderOne() {
 }
 
 wrapHeaderOne();
+
+function setTextSpan() {
+    const textSpan = document.createElement('span');
+    textSpan.id = 'text-span';
+    textSpan.textContent = 'digital!';
+    mainWrapper.appendChild(textSpan);
+}
+
+setTextSpan();
