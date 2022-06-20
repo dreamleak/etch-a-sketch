@@ -1,4 +1,11 @@
 /* ===========
+  google fonts
+============= */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
+
+
+/* ===========
   global styles
 ============= */
 
@@ -29,11 +36,23 @@ body {
   z-index: 1;
 }
 
+#header-one {
+  font-family: 'Dawning of a New Day', 'cursive';
+  font-size: 3em;
+  margin-top: -.2em;
+  color: rgb(224, 235, 194);
+  filter: drop-shadow(0 2px .6px rgba(71, 55, 92));
+}
+
 #text-span {
   align-self: center;
-  margin-right: 22em;
-  margin-top: -1.5em;
-  transform: rotate(-20deg);
+  font-family: 'VT323', 'monospace';
+  font-size: 2em;
+  margin-right: 12em;
+  margin-top: -2.3em;
+  z-index: 2;
+  color: rgb(224, 235, 194);
+  filter: drop-shadow(0 2px .6px rgb(73, 70, 77));
 }
 
  /* ===========
