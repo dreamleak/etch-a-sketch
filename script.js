@@ -6,6 +6,9 @@ const outPutWrapper = document.querySelector('.output-value-wrapper');
 const rangeWrapper = document.querySelector('.range-wrapper');
 const headerOneWrapper = document.querySelector('#header-one-wrapper');
 const headerOne = document.querySelector('#header-one');
+const knobWrapper = document.querySelector('.knob-wrapper');
+const knobSpanOne = document.querySelector('.knob-one');
+const knobSpanTwo = document.querySelector('.knob-two');
 
 function createDivs(col, row) {
     for (let i = 0; i < (col * row); i++) {
@@ -176,3 +179,20 @@ function setTextSpan() {
 }
 
 setTextSpan();
+
+// replicate knobs like an actual etch-a-sketch
+function setKnobWrapperAndSpans() {
+    const knobWrapper = document.createElement('div');
+    knobWrapper.className = 'knob-wrapper';
+    mainWrapper.appendChild(knobWrapper);
+
+    const knobSpanOne = document.createElement('span');
+    knobSpanOne.className = 'knob-one';
+    knobWrapper.appendChild(knobSpanOne);
+    
+    const knobSpanTwo = document.createElement('span');
+    knobSpanTwo.className = 'knob-two';
+    knobWrapper.appendChild(knobSpanTwo);
+}
+
+setKnobWrapperAndSpans();
