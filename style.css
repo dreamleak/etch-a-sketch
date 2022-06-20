@@ -56,7 +56,8 @@ body {
   height: 680px;
   width: 720px;
   background-color: hsl(180, 100%, 98%);
-  box-shadow: 0 0 3pt 46pt rgb(60, 111, 187); /*frames screen without overlap*/
+  box-shadow: 0 0 2pt 46pt rgb(60, 111, 187), /*frames screen without overlap*/
+  inset 0 0 4pt 3pt rgba(127, 125, 128, 0.8);
   border-radius: 2pt;
 }
 
