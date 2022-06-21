@@ -129,13 +129,16 @@ button {
 button:hover {
   cursor: pointer;
   color: transparent;
-  transform: translate(10%) rotate(-4deg);
-  transition: all 0.3s ease;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.6) 50%, rgba(229, 172, 142, 0));
+  transition: all 0.5s ease-in;
+  transform: translateY(-6%);
 }
 
 :hover::before {
   position: absolute;
   left: 40%;
+  z-index: -1;
+  filter: drop-shadow(0 2px .6px rgba(71, 55, 92));
 }
 
 #black-button:hover::before {
