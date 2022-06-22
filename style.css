@@ -38,7 +38,7 @@ body {
 
 #header-one {
   font-family: 'Dawning of a New Day', 'cursive';
-  font-size: 3em;
+  font-size: 3rem;
   margin-top: -.2em;
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 25%, 29%));
@@ -47,7 +47,7 @@ body {
 #text-span {
   align-self: center;
   font-family: 'VT323', 'monospace';
-  font-size: 2em;
+  font-size: 2rem;
   margin-right: 12em;
   margin-top: -2.3em;
   z-index: 2;
@@ -57,7 +57,7 @@ body {
 
 button {
   font-family: 'VT323', 'monospace';
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
  /* ===========
