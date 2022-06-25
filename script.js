@@ -146,7 +146,7 @@ rangeTrack.addEventListener('input', () => {
     rangeWrapper.appendChild(outPutWrapper);
     
 function setBubble(range, bubble) {
-    const thumbSize = 16 // referenced from browser computed value.
+    const thumbSize = 16, // referenced from browser computed value.
           val = range.value,
           newVal = Number(((val - range.min) * 50) / (range.max - range.min)),
           bubbleOffset = thumbSize / 2;
@@ -196,3 +196,24 @@ function setKnobWrapperAndSpans() {
 }
 
 setKnobWrapperAndSpans();
+
+// highlight ONLY active button to enchance user experience.
+
+const getButtons = document.querySelectorAll('button');
+
+getButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            getButtons.forEach(selectedButton => {
+                e.target.classList.toggle(':active');
+            
+                if (selectedButton != e.target) {
+                    selectedButton.style.removeProperty('outline');
+
+                } else { 
+                    if (selectedButton == e.target) {
+                        e.target.style.outline = '2px solid hsl(165, 96%, 84%)';
+                    }
+                }
+            });
+        }); 
+    });
