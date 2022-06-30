@@ -3,19 +3,25 @@
 ============= */
 
 html {
-    box-sizing: border-box;
-  }
-  *, *::before, *::after {
-    box-sizing: inherit;
-    padding: 0;
-    margin: 0;
-  }
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
 
 body {
   background-color: hsl(282, 6%, 55%);
   /* background-image: url('https://tinyurl.com/2p8wtnw6'); */
-  background-attachment: fixed;
-  overflow-x: hidden;
+  /* background-attachment: fixed; */
+  min-height: 100vmin;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  overflow: auto;
 }
 
  /* ===========
@@ -38,7 +44,7 @@ body {
 }
 
 #text-span {
-  align-self: center;
+  display: inline-block;
   font-family: 'VT323', 'monospace';
   font-size: 2rem;
   margin-right: 12em;
@@ -46,6 +52,7 @@ body {
   z-index: 2;
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 5%, 29%));
+  text-align: center;
 }
 
 button {
@@ -56,34 +63,32 @@ button {
  /* ===========
     layout
   ============= */ 
-
 .main-wrapper {
-  display: flex;
+  display: grid;
+  justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
+  min-width: 90vmin
 }
 
 .grid-wrapper {
   display: flex;
   justify-content: center;
-  gap: 2rem;
 }
 
 .grid-container {
   display: grid;
-  min-height: 680px;
-  min-width: 720px;
+  min-width: 90vmin;
   background-color: hsl(180, 100%, 98%);
   box-shadow: 0 0 1px 64px hsl(216, 51%, 48%), /*frames screen without overlap*/
   inset 0 0 4px 3px hsla(280, 1%, 50%, 0.8);
+  aspect-ratio: 40 / 40;
   border-radius: 0.125em;
   filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 0.6));
 }
 
-/* ===========
+  /* ===========
   components
-============= */
-
+  ============= */
 .button-wrapper {
   display: flex;
   justify-content: center;
@@ -91,7 +96,7 @@ button {
   z-index: 1;
   padding: 0.84em;
 }
-
+  
 .range-wrapper {
   position: absolute;
   align-self: center;
@@ -101,8 +106,8 @@ button {
 .output-value-wrapper {
   position: absolute;
   left: 11.6em;
-  top: -24.5em;
-  width: 290px;
+  top: -26em;
+  min-width: 290px;
 }
 
 button {
@@ -115,7 +120,6 @@ button {
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 5%, 29%));
   box-shadow: inset 0 0 2px 2px hsla(266, 13%, 58%, 0.884);
-  overflow:hidden;
   position: relative;
 }
 
@@ -159,6 +163,7 @@ input[type="range"] {
   width: 156px; /* firefox requires specified width for slider */
   align-self: center;
   border-radius: 2em 2em;
+  position: relative;
 }
 
 .bubble {
@@ -184,17 +189,65 @@ input[type="range"] {
 .knob-wrapper {
   display: flex;
   justify-content: center;
-  gap: 43em;
+  gap: 40em;
 }
 
 .knob-one,
 .knob-two {
   border-radius: 50%;
-  height: 90px;
-  width: 90px;
-  margin-top: -3em;
+  min-width: 90px;
+  aspect-ratio: 1 / 1;
+  margin-top: -6em;
   background-color: hsl(269, 26%, 54%);
   box-shadow: 0 0 3px 2px hsla(266, 25%, 29%, 0.2),
   inset 0 0 0px 3px hsla(282, 37%, 88%, 0.5);
   filter: drop-shadow(0px 0px 4px hsla(0, 0%, 0%, 0.6));
+}
+
+/* mobile and tablet-friendly version */
+@media (min-width: 312px) and (max-width: 720px) {
+  
+  #text-span {
+    font-size: 1em;
+    margin-top: -4.8em;
+    margin-left: 5em;
+  }
+  
+  .output-value-wrapper {
+   position: absolute;
+   top: -14em;
+   left: -4.8em;
+  }
+  
+ .button-wrapper {
+   display: flex;
+   flex-direction: column;
+  }
+  
+  button {
+    align-self: center;
+  }
+  
+  #black-button, #rgb-button {
+    margin-left: -11.4em;
+    top: 8.2em;
+  }
+  
+  #grey-button, #clear-button {
+    margin-right: -11.4em;
+    top: 2em;
+    
+  }
+
+  .knob-wrapper {
+   gap: 20em;
+  }
+ 
+  .knob-one,
+  .knob-two {
+   width: calc(20vw / 2);
+   aspect-ratio: 1 / 1;
+   flex-shrink: 1;
+  }
+
 }
