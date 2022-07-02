@@ -14,14 +14,12 @@ html {
 
 body {
   background-color: hsl(282, 6%, 55%);
-  /* background-image: url('https://tinyurl.com/2p8wtnw6'); */
-  /* background-attachment: fixed; */
   min-height: 100vmin;
   display: grid;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  overflow: auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
  /* ===========
@@ -30,8 +28,8 @@ body {
 
 #header-one-wrapper {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: .5em;
   z-index: 1;
 }
 
@@ -41,6 +39,7 @@ body {
   margin-top: -.2em;
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 25%, 29%));
+  padding-top: .2em;
 }
 
 #text-span {
@@ -67,7 +66,7 @@ button {
   display: grid;
   justify-content: center;
   flex-direction: column;
-  min-width: 90vmin
+  min-width: 90vmin;
 }
 
 .grid-wrapper {
@@ -99,14 +98,12 @@ button {
   
 .range-wrapper {
   position: absolute;
-  align-self: center;
-  margin-top: 4em;
 }
 
 .output-value-wrapper {
   position: absolute;
-  left: 11.6em;
-  top: -26em;
+  left: 11.9em;
+  top: -1em;
   min-width: 290px;
 }
 
@@ -205,8 +202,12 @@ input[type="range"] {
 }
 
 /* mobile and tablet-friendly version */
-@media (min-width: 312px) and (max-width: 720px) {
-  
+@media (min-width: 13.125em) and (max-width: 45.250em) {
+
+  .grid-container {
+    box-shadow: 1vw 0 0.05vw 15vw hsl(216, 51%, 48%);
+  }
+
   #text-span {
     font-size: 1em;
     margin-top: -4.8em;
@@ -215,8 +216,18 @@ input[type="range"] {
   
   .output-value-wrapper {
    position: absolute;
-   top: -14em;
+   top: -4em;
    left: -4.8em;
+  }
+
+  .bubble {
+  padding: 0.10em 0.45em;
+  }
+
+  .bubble::after {
+  content: "";
+  position: absolute;
+  top: 22px;
   }
   
  .button-wrapper {
@@ -229,25 +240,23 @@ input[type="range"] {
   }
   
   #black-button, #rgb-button {
-    margin-left: -11.4em;
-    top: 8.2em;
+    margin-left: -6em;
+    top: 5em;
   }
   
   #grey-button, #clear-button {
-    margin-right: -11.4em;
-    top: 2em;
-    
-  }
+    margin-right: -6em;
+    top: -1em;
+  } 
 
   .knob-wrapper {
-   gap: 20em;
+    gap: 20em;
   }
  
   .knob-one,
   .knob-two {
-   width: calc(20vw / 2);
-   aspect-ratio: 1 / 1;
-   flex-shrink: 1;
+    align-self: center;
+    min-width: 14vw;
   }
 
 }
