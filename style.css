@@ -152,7 +152,7 @@ button:hover {
 }
 
 button:focus {
-  outline: 2em solid hsl(165, 96%, 84%);
+  outline: .1em solid hsl(165, 96%, 84%, 0.8);
 }
 
 input[type="range"] {
