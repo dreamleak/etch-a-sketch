@@ -34,10 +34,8 @@ body {
 #header-one {
   font-family: 'Dawning of a New Day', 'cursive';
   font-size: 3rem;
-  margin-top: -.2em;
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 25%, 29%));
-  padding-top: .2em;
 }
 
 #text-span {
@@ -63,7 +61,6 @@ button {
 .main-wrapper {
   display: grid;
   justify-content: center;
-  min-width: 90vmin;
 }
 
 .grid-wrapper {
@@ -182,16 +179,16 @@ input[type="range"] {
 
 .knob-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 38em;
+  justify-content: space-between;
+  margin-top: -6em;
 }
 
 .knob-one,
 .knob-two {
   border-radius: 50%;
-  min-width: 90px;
-  aspect-ratio: 1 / 1;
-  margin-top: -6em;
+  min-width: 5em;
+  min-height: 5em;
+  align-self: center;
   background-color: hsl(269, 26%, 54%);
   box-shadow: 0 0 3px 2px hsla(266, 25%, 29%, 0.2),
   inset 0 0 0px 3px hsla(282, 37%, 88%, 0.5);
@@ -255,6 +252,7 @@ input[type="range"] {
   .knob-two {
     align-self: center;
     min-width: 14vw;
+    min-height: 14vw;
   }
 
 }
