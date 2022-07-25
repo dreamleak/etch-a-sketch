@@ -8,7 +8,7 @@ const mainWrapper = document.querySelector('.main-wrapper'),
       buttonGroup = document.querySelectorAll('button');
       
 function createDivs(column, row) {
-	for (let i = 0; i < (column * row); i++) {
+	for (let i = 0; i < column * row; i++) {
 		const gridSquare = document.createElement('div');
 		gridContainer.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
 		gridContainer.style.gridTemplateRows = `repeat(${row}, 1fr)`;
@@ -21,24 +21,24 @@ createDivs(50, 50);
 function createButtons() {
 	const buttonCollection = [
 		{
-			'name': 'Black',
-			'class': 'black-button'
-    },
+			name: 'Black',
+			class: 'black-button',
+		},
 		{
-			'name': 'Rainbow',
-			'class': 'rainbow-button'
-    },
+			name: 'Rainbow',
+			class: 'rainbow-button',
+		},
 		{
-			'name': 'Greyscale',
-			'class': 'grey-button'
-    },
+			name: 'Greyscale',
+			class: 'grey-button',
+		},
 		{
-			'name': 'Eraser',
-			'class': 'eraser-button'
-    }
-];
+			name: 'Eraser',
+			class: 'eraser-button',
+		},
+	];
 
-	buttonCollection.forEach(button => {
+	buttonCollection.forEach((button) => {
 		let buttons = document.createElement('button');
 		buttons.textContent = button.name;
 		buttonWrapper.appendChild(buttons).className = button.class;
@@ -67,24 +67,27 @@ function highlightActiveButtons() {
 highlightActiveButtons();
 
 function chooseButtonColour() {
-        buttonWrapper.addEventListener('pointerdown', (chosen) => {
-        gridContainer.addEventListener('pointerover', (square) => {
+	buttonWrapper.addEventListener('pointerdown', (chosen) => {
+		gridContainer.addEventListener('pointerover', function (square) {
+			square.target.releasePointerCapture(square.pointerId);
 
-            if (chosen.target.matches('.black-button')) {
-                    square.target.style.backgroundColor = 'hsl(0, 0%, 8%)';
-                }
-            if (chosen.target.matches('.rainbow-button')) {
-                    square.target.style.backgroundColor = 'hsla(' +
-                    (Math.random() * 360) + ', 100%, 50%, 1)';
-                }
-            if (chosen.target.matches('.grey-button')) {
-                    square.target.style.backgroundColor = generateGreyscale();
-                }
-            if (chosen.target.matches('.eraser-button')) {
-                    square.target.style.backgroundColor = null;
-             }
-        });
-    });
+			gridContainer.addEventListener('pointermove', (square) => {
+				if (chosen.target.matches('.black-button')) {
+					square.target.style.backgroundColor = 'hsl(0, 0%, 8%)';
+				}
+				if (chosen.target.matches('.rainbow-button')) {
+					square.target.style.backgroundColor =
+						'hsla(' + Math.random() * 360 + ', 100%, 50%, 1)';
+				}
+				if (chosen.target.matches('.grey-button')) {
+					square.target.style.backgroundColor = generateGreyscale();
+				}
+				if (chosen.target.matches('.eraser-button')) {
+					square.target.style.backgroundColor = null;
+				}
+			});
+		});
+	});
 }
 
 chooseButtonColour();
@@ -96,15 +99,14 @@ function generateGreyscale() {
         return 'hsl(' + hue + ', ' + saturation + ', ' + lightness + ')';
 }
 
-
 function createRangeSlider() {
-    const rangeSlider = document.createElement('input');
-    rangeSlider.type = 'range';
-    rangeSlider.className = 'range-slider';
-    rangeSlider.min = '10';
-    rangeSlider.max = '50';
-    rangeSlider.step = '2';
-    buttonWrapper.appendChild(rangeSlider);
+	const rangeSlider = document.createElement('input');
+	rangeSlider.type = 'range';
+	rangeSlider.className = 'range-slider';
+	rangeSlider.min = '10';
+	rangeSlider.max = '50';
+	rangeSlider.step = '2';
+	buttonWrapper.appendChild(rangeSlider);
 }
 
 createRangeSlider();
@@ -137,43 +139,43 @@ function positionValueBubble(range, bubble) {
 const valueBubble = document.querySelector('.bubble');
 
 rangeTrack.addEventListener('input', () => {
-    positionValueBubble(rangeTrack, valueBubble);
+	positionValueBubble(rangeTrack, valueBubble);
 });
 
 rangeTrack.oninput = function changeGridSize() {
-    createDivs(rangeTrack.value, rangeTrack.value);
+	createDivs(rangeTrack.value, rangeTrack.value);
 };
 
 function wrapHeaderOne() {
-    const headerOneWrapper = document.createElement('div');
-    headerOneWrapper.id = 'header-one-wrapper';
-    headerOneWrapper.appendChild(headerOne);
-    mainWrapper.append(headerOneWrapper);
+	const headerOneWrapper = document.createElement('div');
+	headerOneWrapper.id = 'header-one-wrapper';
+	headerOneWrapper.appendChild(headerOne);
+	mainWrapper.append(headerOneWrapper);
 }
 
 wrapHeaderOne();
 
 function createTextSpan() {
-    const textSpan = document.createElement('span');
-    textSpan.id = 'text-span';
-    textSpan.textContent = 'digital!';
-    mainWrapper.appendChild(textSpan);
+	const textSpan = document.createElement('span');
+	textSpan.id = 'text-span';
+	textSpan.textContent = 'digital!';
+	mainWrapper.appendChild(textSpan);
 }
 
 createTextSpan();
 
 // replicate knobs like an actual etch-a-sketch
 function createKnobs() {
-    const knobWrapper = document.createElement('div');
-    knobWrapper.className = 'knob-wrapper';
-    mainWrapper.appendChild(knobWrapper);
+	const knobWrapper = document.createElement('div');
+	knobWrapper.className = 'knob-wrapper';
+	mainWrapper.appendChild(knobWrapper);
 
-    const knobSpanOne = document.createElement('span');
-    knobSpanOne.className = 'knob-one';
-    
-    const knobSpanTwo = document.createElement('span');
-    knobSpanTwo.className = 'knob-two';
-    knobWrapper.append(knobSpanOne, knobSpanTwo);
+	const knobSpanOne = document.createElement('span');
+	knobSpanOne.className = 'knob-one';
+
+	const knobSpanTwo = document.createElement('span');
+	knobSpanTwo.className = 'knob-two';
+	knobWrapper.append(knobSpanOne, knobSpanTwo);
 }
 
 createKnobs();
