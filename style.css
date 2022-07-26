@@ -182,6 +182,7 @@ input[type="range"] {
   display: flex;
   justify-content: space-between;
   margin-top: -6em;
+  gap: 36em;
 }
 
 .knob-one,
