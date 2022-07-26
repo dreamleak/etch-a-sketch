@@ -68,10 +68,10 @@ highlightActiveButtons();
 
 function chooseButtonColour() {
 	buttonWrapper.addEventListener('pointerdown', (chosen) => {
-		gridContainer.addEventListener('pointerover', function (square) {
-			square.target.releasePointerCapture(square.pointerId);
-
+		gridContainer.addEventListener('pointerover', () => {
 			gridContainer.addEventListener('pointermove', (square) => {
+				square.target.releasePointerCapture(square.pointerId);
+
 				if (chosen.target.matches('.black-button')) {
 					square.target.style.backgroundColor = 'hsl(0, 0%, 8%)';
 				}
