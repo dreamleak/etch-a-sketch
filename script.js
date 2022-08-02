@@ -106,7 +106,7 @@ function createRangeSlider() {
 	rangeSlider.min = '10';
 	rangeSlider.max = '50';
 	rangeSlider.step = '2';
-	buttonWrapper.appendChild(rangeSlider);
+	mainWrapper.appendChild(rangeSlider);
 }
 
 createRangeSlider();
@@ -120,8 +120,6 @@ function displayValue() {
     rangeTrack.addEventListener('input', () => {
         showOutPut.innerHTML = rangeTrack.value;
     }, false);
-    
-    rangeWrapper.appendChild(outPutWrapper);
 }
 
 displayValue();
