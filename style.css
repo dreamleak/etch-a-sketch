@@ -13,11 +13,12 @@ html {
 }
 
 body {
-  background-color: hsl(282, 6%, 55%);
-  min-height: 100vmin;
+  background-color: hsl(0, 0%, 64%);
   display: grid;
   align-items: center;
   width: 100%;
+  overflow-y: hidden;
+  margin-top: 1em;
 }
 
  /* ===========
@@ -27,8 +28,9 @@ body {
 #header-one-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   z-index: 1;
+  padding: 0;
 }
 
 #header-one {
@@ -36,13 +38,15 @@ body {
   font-size: 3rem;
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 25%, 29%));
+  margin-right: 4em;
+  margin-top: -.4em;
 }
 
 #text-span {
   display: inline-block;
   font-family: 'VT323', 'monospace';
   font-size: 2rem;
-  margin-right: 12em;
+  margin-right: 9.5em;
   margin-top: -2.3em;
   z-index: 2;
   color: hsl(76, 51%, 84%);
@@ -58,25 +62,22 @@ button {
  /* ===========
     layout
   ============= */ 
-.main-wrapper {
+.main-wrapper,
+.grid-wrapper {
   display: grid;
   justify-content: center;
-}
-
-.grid-wrapper {
-  display: flex;
-  justify-content: center;
+  margin-top: 2em;
 }
 
 .grid-container {
   display: grid;
   min-width: 80vmin;
   background-color: hsl(180, 100%, 98%);
-  box-shadow: 0 0 1px 64px hsl(216, 51%, 48%), /*frames screen without overlap*/
+  box-shadow: 0 0 1px 64px hsl(192, 73%, 36%), /*frames screen without overlap*/
   inset 0 0 4px 3px hsla(280, 1%, 50%, 0.8);
   aspect-ratio: 40 / 40;
   border-radius: 0.125em;
-  filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 0.6));
+  filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 0.5));
   touch-action: none;
 }
 
@@ -86,20 +87,58 @@ button {
 .button-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1.80rem;
+  gap: 2em;
   z-index: 1;
-  padding: 0.84em;
-}
-  
-.range-wrapper {
-  position: absolute;
+  height: 0;
 }
 
 .output-value-wrapper {
+  position: relative;
+  bottom: 26.5em;
+  left: 38em;
+  min-width: 18em;
+  height: 0;
+  width: 0;
+  transform: rotate(270deg);
+  writing-mode: vertical-lr;
+}
+
+.range-wrapper {
+  height: 0;
+  width: 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  border-radius: 2em 2em;
+  justify-self: flex-end;
+  position: relative;
+  left: 5.5em;
+  bottom: 28em;
+  transform: rotate(270deg);
+  touch-action: none;
+}
+
+.bubble {
+  position: relative;
+  background: hsl(269, 26%, 54%);
+  color: hsl(0, 0%, 100%);
+  padding: 0.25em;
+  border-radius: 50%;
+  min-width: 8em;
+  transform: translateY(-50%);
+  left: 50%;
+  
+}
+
+.bubble::after {
+  content: '';
   position: absolute;
-  left: 11.9em;
-  top: -1em;
-  min-width: 290px;
+  background: hsl(269, 26%, 54%);
+  width: 2px;
+  height: 2px;
+  top: -1px;
+  left: 50%;
 }
 
 button {
@@ -112,7 +151,7 @@ button {
   color: hsl(76, 51%, 84%);
   filter: drop-shadow(0 2px .6px hsl(266, 5%, 29%));
   box-shadow: inset 0 0 2px 2px hsla(266, 13%, 58%, 0.884);
-  position: relative;
+  margin-top: -1em;
 }
 
 button:hover {
@@ -125,7 +164,7 @@ button:hover {
 
 :hover::before {
   position: absolute;
-  left: 40%;
+  left: 36%;
   z-index: -1;
   filter: drop-shadow(0 2px .6px hsl(266, 25%, 29%));
 }
@@ -148,34 +187,6 @@ button:hover {
 
 button:focus {
   outline: .1em solid hsl(165, 96%, 84%, 0.8);
-}
-
-input[type="range"] {
-  -webkit-appearance: none; /* overrides browser default style */
-  width: 156px; /* firefox requires specified width for slider */
-  align-self: center;
-  border-radius: 2em 2em;
-  position: relative;
-}
-
-.bubble {
-  position: absolute;
-  background: hsl(288, 93%, 47%);
-  color: hsl(0, 0%, 100%);
-  padding: 0.25em 0.75em;
-  border-radius: 0.25em;
-  transform: translateX(-50%);
-  left: 50%;
-}
-
-.bubble::after {
-  content: "";
-  position: absolute;
-  background: hsl(288, 93%, 47%);
-  width: 2px;
-  height: 2px;
-  top: -1px;
-  left: 50%;
 }
 
 .knob-wrapper {
@@ -207,51 +218,85 @@ input[type="range"] {
 /* mobile and tablet-friendly version */
 @media (min-width: 13.125em) and (max-width: 45.250em) {
 
+  body {
+    display: grid;
+    align-items: center;
+    margin-top: 20em;
+    overflow-x: hidden;
+  }
+  
   .grid-container {
-    box-shadow: 1vw 0 0.05vw 14vw hsl(216, 51%, 48%);
+    box-shadow: 1vw 0 0.05vw 13vw hsl(192, 73%, 36%);
     min-width: 75vmin;
   }
 
   #text-span {
-    font-size: 1em;
-    margin-top: -4.8em;
-    margin-left: 5em;
-  }
-  
-  .output-value-wrapper {
-   position: absolute;
-   top: -4em;
-   left: -4.8em;
+    font-size: 1.2rem;
+    margin-top: -3.6em;
+    margin-left: 4em;
   }
 
+  #header-one {
+    font-size: 2.5rem;
+    margin-right: 2.2em;
+  }
+
+  input[type="range"] {
+    justify-self: center;
+    bottom: 25.2em;
+    margin-right: 9em;
+    z-index: 1;
+    writing-mode: horizontal-tb;
+    transform: rotate(180deg);
+  }
+
+  .output-value-wrapper {
+   bottom: 19.8em;
+   left: 19em;
+   min-width: 0;
+  }
+  
   .bubble {
-  padding: 0.10em 0.45em;
+    padding: 0.25em;
+    border-radius: 50%;
+    min-width: 8em;
+    transform: translateX(-50%);
   }
 
   .bubble::after {
-  content: "";
-  position: absolute;
-  top: 22px;
+    display: none;
   }
-  
+
  .button-wrapper {
-   display: flex;
-   flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -2em;
   }
-  
+
+  .black-button {
+    margin-right: 6em;
+    margin-top: 4em;
+    top: 12em;
+  }
+
+  .rainbow-button {
+    margin-right: 6em;
+    margin-bottom: -5em;
+  }
+
+  .grey-button {
+    margin-left: 6em;
+  }
+
+  .eraser-button {
+    margin-left: 6em;
+    margin-bottom: 2em;
+  }
+
   button {
-    align-self: center;
+    margin-bottom: .7em;
   }
-  
-  .black-button, .rainbow-button {
-    margin-left: -6em;
-    top: 5em;
-  }
-  
-  .grey-button, .eraser-button {
-    margin-right: -6em;
-    top: -1em;
-  } 
 
   .knob-wrapper {
     gap: 18em;
@@ -262,17 +307,6 @@ input[type="range"] {
     align-self: center;
     min-width: 14vw;
     min-height: 14vw;
-  }
-
-  .dot {
-    border: 2px solid red;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: red;
-    position: absolute;
-    top: -8px;
-    left: -8px;
   }
 
 }
