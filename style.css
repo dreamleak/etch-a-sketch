@@ -19,9 +19,9 @@ body {
   min-height: 100vh;
 }
 
- /* ===========
-   typography
-  ============ */  
+/* ===========
+typography
+============ */  
 #header-one-wrapper {
   display: grid;
   justify-content: flex-end;
@@ -54,12 +54,12 @@ button {
 }
 
  /* ===========
-    layout
-  ============= */ 
-.main-wrapper,
-.grid-wrapper {
-  display: grid;
-  justify-content: center;
+ layout
+ ============= */ 
+ .main-wrapper,
+ .grid-wrapper {
+   display: grid;
+   justify-content: center;
   margin-top: 2em;
   position: relative;
 }
@@ -76,9 +76,9 @@ button {
   touch-action: none;
 }
 
-  /* ===========
-  components
-  ============= */
+/* ===========
+components
+============= */
 .button-wrapper {
   display: flex;
   justify-content: center;
@@ -202,9 +202,16 @@ button:focus {
   -webkit-radial-gradient(50% 50%, 200% 50%, hsla(270, 31%, 57%, 0.959) 5%,hsl(269, 26%, 54%) 30%, hsl(269, 26%, 54%)100%);
 }
 
+/* firefox vertical scrollbar removal */
+@supports (-moz-appearance: none) {
+  html, body {
+    overflow: hidden !important;
+  }
+}
+
 /* mobile and tablet-friendly version */
 @media (min-width: 13.125em) and (max-width: 45.250em) {
-
+  
   body {
     margin-top: 2em;
     overflow: hidden;
@@ -214,7 +221,7 @@ button:focus {
     box-shadow: 1vw 0 0.05vw 13vw hsl(192, 73%, 36%);
     min-width: 75vmin;
   }
-
+  
   #text-span {
     font-size: 1rem;
     margin-top: -3.8em;
