@@ -6,6 +6,7 @@ const mainWrapper = document.querySelector('.main-wrapper'),
       rangeWrapper = document.querySelector('.range-wrapper'),
       headerOne = document.querySelector('#header-one'),
       buttonGroup = document.querySelectorAll('button');
+	  
       
 function createDivs(column, row) {
 	for (let i = 0; i < column * row; i++) {
@@ -99,10 +100,20 @@ function generateGreyscale() {
         return 'hsl(' + hue + ', ' + saturation + ', ' + lightness + ')';
 }
 
+function createSliderLabel() {
+	const sliderLabel = document.createElement('label');
+	sliderLabel.htmlFor = 'range-slider';
+	sliderLabel.textContent = 'Resize grid';
+	sliderLabel.style.position = 'absolute';
+	mainWrapper.appendChild(sliderLabel);
+}
+
+createSliderLabel();
+
 function createRangeSlider() {
 	const rangeSlider = document.createElement('input');
 	rangeSlider.type = 'range';
-	rangeSlider.className = 'range-slider';
+	rangeSlider.id = 'range-slider';
 	rangeSlider.min = '10';
 	rangeSlider.max = '50';
 	rangeSlider.step = '2';
@@ -112,7 +123,7 @@ function createRangeSlider() {
 createRangeSlider();
 
 let showOutPut = document.querySelector('output'),
-    rangeTrack = document.querySelector('input');
+	rangeTrack = document.querySelector('input');
 
 function displayValue() {
     showOutPut.innerHTML = rangeTrack.value;
@@ -125,7 +136,7 @@ function displayValue() {
 displayValue();
 
 function positionValueBubble(range, bubble) {
-    // account for thumb size and position.
+	// account for thumb size and position.
     // avoid magic number by using named const.
     const thumbSize = 16, // referenced from browser computed value.
     currentValue = range.value,
@@ -143,6 +154,13 @@ rangeTrack.addEventListener('input', () => {
 rangeTrack.oninput = function changeGridSize() {
 	createDivs(rangeTrack.value, rangeTrack.value);
 };
+
+// keyboard accessibility!
+rangeTrack.addEventListener('click', (event) => {
+	if (event.code === 'ArrowUp' || 'ArrowDown') {
+		this.focus();
+	}
+});
 
 function wrapHeaderOne() {
 	const headerOneWrapper = document.createElement('div');
