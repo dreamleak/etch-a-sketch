@@ -58,8 +58,8 @@ button {
  ============= */ 
  .main-wrapper,
  .grid-wrapper {
-   display: grid;
-   justify-content: center;
+  display: grid;
+  justify-content: center;
   margin-top: 2em;
   position: relative;
 }
@@ -72,6 +72,7 @@ button {
   inset 0 0 4px 3px hsla(280, 1%, 50%, 0.8);
   aspect-ratio: 40 / 40;
   border-radius: 0.125em;
+  backdrop-filter: blur(6px);
   filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 0.5));
   touch-action: none;
 }
@@ -96,6 +97,11 @@ components
   writing-mode: vertical-lr;
 }
 
+label {
+  right: -8em;
+  bottom: 32em;
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   border-radius: 2em 2em;
@@ -107,16 +113,72 @@ input[type="range"] {
   touch-action: none;
 }
 
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+  background: hsl(192, 21%, 57%);
+}
+
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+  background: hsl(192, 21%, 57%);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+}
+
+input[type=range]::-moz-range-progress {
+  background: hsl(192, 73%, 36%);
+  height: 1.5rem;
+  border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: .75rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  background: transparent;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  background: transparent;
+  cursor: pointer;
+  margin-top: -14px; 
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid hsl(165, 96%, 84%, 0.8);
+  outline: 3px solid hsl(165, 96%, 84%, 0.8);
+  outline-offset: 0.125rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid hsl(165, 96%, 84%, 0.8);
+  outline: 3px solid hsl(165, 96%, 84%, 0.8);
+  outline-offset: 0.125rem;     
+}
+
 .bubble {
   position: relative;
   background: hsl(269, 26%, 54%);
-  color: hsl(0, 0%, 100%);
+  color: hsl(76, 51%, 84%);
   padding: 0.25em;
   border-radius: 50%;
   min-width: 8em;
   transform: translateY(-50%);
   left: 50%;
-  
+  outline: 2px solid hsl(270, 12%, 74%);
+  filter: drop-shadow(0px 0px 2px hsla(0, 0%, 0%, 0.4));
 }
 
 .bubble::after {
@@ -124,8 +186,8 @@ input[type="range"] {
   position: absolute;
   background: hsl(269, 26%, 54%);
   width: 2px;
-  height: 2px;
-  top: -1px;
+  height: 6px;
+  top: -2px;
   left: 50%;
 }
 
@@ -173,7 +235,8 @@ button:hover {
   content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCA1MCA1MCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDMyLjU5Mzc1IDQuMDMxMjUgQyAzMS44MDg1OTQgNC4wMzEyNSAzMS4wMzkwNjMgNC4yOTY4NzUgMzAuNDY4NzUgNC44NzUgTCAzLjg3NSAzMS43NSBDIDIuNzAzMTI1IDMyLjkzMzU5NCAyLjcwMzEyNSAzNC44NzUgMy44NzUgMzYuMDYyNSBMIDEzLjQzNzUgNDUuNzE4NzUgQyAxMy42Mjg5MDYgNDUuOTEwMTU2IDEzLjg4NjcxOSA0NiAxNC4xNTYyNSA0NiBMIDQxIDQ2IEMgNDEuMzkwNjI1IDQ2LjA1ODU5NCA0MS43ODEyNSA0NS44Nzg5MDYgNDEuOTk2MDk0IDQ1LjU0Njg3NSBDIDQyLjIxMDkzOCA0NS4yMTQ4NDQgNDIuMjEwOTM4IDQ0Ljc4NTE1NiA0MS45OTYwOTQgNDQuNDUzMTI1IEMgNDEuNzgxMjUgNDQuMTIxMDk0IDQxLjM5MDYyNSA0My45NDE0MDYgNDEgNDQgTCAyNS4wMzEyNSA0NCBMIDQ3LjEyNSAyMS42ODc1IEMgNDguMjk2ODc1IDIwLjUwMzkwNiA0OC4yOTY4NzUgMTguNTU4NTk0IDQ3LjEyNSAxNy4zNzUgTCAzNC43NSA0Ljg3NSBDIDM0LjE3OTY4OCA0LjI5Njg3NSAzMy4zNzg5MDYgNC4wMzEyNSAzMi41OTM3NSA0LjAzMTI1IFogTSAxOCAyMC4zNzUgTCAzMi4zMTI1IDMzLjc4MTI1IEwgMjIuMjE4NzUgNDQgTCAxNC41NjI1IDQ0IEwgNS4zMTI1IDM0LjYyNSBDIDQuOTE3OTY5IDM0LjIyMjY1NiA0LjkxNzk2OSAzMy41ODU5MzggNS4zMTI1IDMzLjE4NzUgWiI+PC9wYXRoPjwvc3ZnPg==');
 }
 
-button:focus {
+button:focus,
+input[type=range]:focus-visible {
   outline: .1em solid hsl(165, 96%, 84%, 0.8);
 }
 
@@ -233,6 +296,11 @@ button:focus {
     margin-right: 2.4em;
   }
 
+  label {
+    left: 2em;
+    bottom: 28.4em;
+  }
+
   input[type="range"] {
     left: 10em;
     bottom: 34em;
@@ -242,7 +310,8 @@ button:focus {
 
   .output-value-wrapper {
    bottom: 25em;
-   left: 11em;
+   left: 20em;
+   width: 0;
   }
   
   .bubble {
