@@ -67,10 +67,11 @@ button, label {
 .grid-container {
   display: grid;
   min-width: 80vmin;
+  min-height: 80vmin;
+  aspect-ratio: 40 / 40;
   background-color: hsl(180, 100%, 98%);
   box-shadow: 0 0 1px 64px hsl(192, 73%, 36%), /*frames screen without overlap*/
   inset 0 0 4px 3px hsla(280, 1%, 50%, 0.8);
-  aspect-ratio: 40 / 40;
   border-radius: 0.125em;
   backdrop-filter: blur(6px);
   filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 0.5));
