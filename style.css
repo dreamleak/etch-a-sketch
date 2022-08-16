@@ -48,7 +48,7 @@ typography
   text-align: center;
 }
 
-button {
+button, label {
   font-family: 'VT323', 'monospace';
   font-size: 1.5rem;
 }
@@ -90,23 +90,33 @@ components
 
 .output-value-wrapper {
   position: relative;
-  bottom: 25em;
-  left: 44em;
+  bottom: 24.8em;
+  left: 46em;
   max-width: 18em;
   transform: rotate(270deg);
   writing-mode: vertical-lr;
 }
 
 label {
-  right: -8em;
-  bottom: 32em;
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(94, 106, 109, .4);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: .2em .2em;
+  color: hsl(76deg 83% 89%);
+  padding: .3em;
+  right: -7em;
+  bottom: 21em;
+  filter: drop-shadow(0px 0px 2.5px hsla(0, 0%, 0%, .2));
+  text-shadow: 0 1px .2px hsl(0, 2%, 20%);
+  max-width: fit-content;
 }
 
 input[type="range"] {
   -webkit-appearance: none;
   border-radius: 2em 2em;
   position: absolute;
-  left: 55em;
+  left: 57em;
   bottom: 30em;
   transform: rotate(270deg);
   min-width: 150px;
@@ -297,8 +307,8 @@ input[type=range]:focus-visible {
   }
 
   label {
-    left: 2em;
-    bottom: 28.4em;
+    left: .4em;
+    bottom: 18.6em;
   }
 
   input[type="range"] {
