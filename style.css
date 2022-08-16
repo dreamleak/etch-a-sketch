@@ -100,7 +100,7 @@ components
 label {
   backdrop-filter: blur(15px) saturate(180%);
   -webkit-backdrop-filter: blur(15px) saturate(180%);
-  background-color: rgba(94, 106, 109, .4);
+  background-color: hsla(192, 7%, 40%, 0.4);
   border: 1px solid hsla(0, 0%, 100%, 0.3);
   border-radius: .2em .2em;
   color: hsl(76deg 83% 89%);
