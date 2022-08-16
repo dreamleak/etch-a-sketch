@@ -180,24 +180,24 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .bubble {
   position: relative;
-  background: hsl(269, 26%, 54%);
-  color: hsl(76, 51%, 84%);
+  background: hsl(269, 12%, 45%);
+  color: hsl(76deg 83% 89%);
   padding: 0.25em;
   border-radius: 50%;
   min-width: 8em;
   transform: translateY(-50%);
   left: 50%;
-  outline: 2px solid hsl(270, 12%, 74%);
+  outline: 2px solid hsl(272, 20%, 81%);
   filter: drop-shadow(0px 0px 2px hsla(0, 0%, 0%, 0.4));
 }
 
 .bubble::after {
   content: '';
   position: absolute;
-  background: hsl(269, 26%, 54%);
+  background: hsl(272, 20%, 81%);
   width: 2px;
-  height: 6px;
-  top: -2px;
+  height: 4px;
+  top: -5px;
   left: 50%;
 }
 
