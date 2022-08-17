@@ -4,7 +4,7 @@ const mainWrapper = document.querySelector('.main-wrapper'),
       buttonWrapper = document.querySelector('.button-wrapper'),
       outPutWrapper = document.querySelector('.output-value-wrapper'),
       rangeWrapper = document.querySelector('.range-wrapper'),
-      headerOne = document.querySelector('#header-one'),
+      headerOne = document.querySelector('.header-one'),
       buttonGroup = document.querySelectorAll('button');
 	  
       
@@ -164,7 +164,7 @@ rangeTrack.addEventListener('click', (event) => {
 
 function wrapHeaderOne() {
 	const headerOneWrapper = document.createElement('div');
-	headerOneWrapper.id = 'header-one-wrapper';
+	headerOneWrapper.className = 'header-one-wrapper';
 	headerOneWrapper.appendChild(headerOne);
 	mainWrapper.append(headerOneWrapper);
 }
@@ -173,7 +173,7 @@ wrapHeaderOne();
 
 function createTextSpan() {
 	const textSpan = document.createElement('span');
-	textSpan.id = 'text-span';
+	textSpan.className = 'text-span';
 	textSpan.textContent = 'digital!';
 	mainWrapper.appendChild(textSpan);
 }
